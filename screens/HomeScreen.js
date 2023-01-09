@@ -16,6 +16,7 @@ import {
   AdjustmentsHorizontalIcon,
 } from "react-native-heroicons/outline";
 import Categories from "../components/Categories";
+import FeauturedRow from "../components/FeauturedRow";
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -60,6 +61,9 @@ const HomeScreen = () => {
       >
         <Categories />
       </ScrollView>
+      <FeauturedRow title='feauttured' description='Paid placement from our part' id='1'/>
+      <FeauturedRow title='feauttured' description='Paid placement from our part' id='12'/>
+      <FeauturedRow title='feauttured' description='Paid placement from our part' id='123'/>
     </SafeAreaView>
   );
 };
