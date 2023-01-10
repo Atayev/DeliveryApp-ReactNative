@@ -56,14 +56,27 @@ const HomeScreen = () => {
       <ScrollView
         className="bg-gray-100"
         contentContainerStyle={{
-          paddingBottom: 100,
+          paddingBottom: 10,
         }}
       >
         <Categories />
+      <FeauturedRow
+        title="Featured"
+        description="Paid placement from our part"
+        id="1"
+      />
+      <FeauturedRow
+        title="Tasty Discounts"
+        description="Paid placement from our part"
+        id="12"
+      />
+      <FeauturedRow
+        title="Offers near you"
+        description="Paid placement from our part"
+        id="123"
+      />
       </ScrollView>
-      <FeauturedRow title='feauttured' description='Paid placement from our part' id='1'/>
-      <FeauturedRow title='feauttured' description='Paid placement from our part' id='12'/>
-      <FeauturedRow title='feauttured' description='Paid placement from our part' id='123'/>
+      
     </SafeAreaView>
   );
 };

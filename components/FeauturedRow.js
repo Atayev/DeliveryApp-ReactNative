@@ -17,13 +17,68 @@ const FeauturedRow = ({ title, description, featuredCategory }) => {
         contentContainerStyle={{
           paddingHorizontal: 15,
         }}
-        showsHorizontalScrollIndicator:false
+        showsHorizontalScrollIndicator={false}
         className="pt-4"
       >
         <RestourantCart
           id={123}
           imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
           title="Tat Sushi"
+          rating={4.5}
+          genre="sushi"
+          address="123 Main st"
+          short_descr="This is a Tat sush description"
+          dishes={[]}
+          long={20}
+          lat={120}
+        />
+        <RestourantCart
+          id={123}
+          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          title="Tat Sushi"
+          rating={4.5}
+          genre="sushi"
+          address="123 Main st"
+          short_descr="This is a Tat sush description"
+          dishes={[]}
+          long={20}
+          lat={120}
+        />
+        <RestourantCart
+          id={123}
+          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          title="Tat Sushi"
+          rating={4.5}
+          genre="sushi"
+          address="123 Main st"
+          short_descr="This is a Tat sush description"
+          dishes={[]}
+          long={20}
+          lat={120}
+        />
+        <RestourantCart
+          id={123}
+          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          title="Tat Sushi"
+          rating={4.5}
+          genre="sushi"
+          address="123 Main st"
+          short_descr="This is a Tat sush description"
+          dishes={[]}
+          long={20}
+          lat={120}
+        />
+        <RestourantCart
+          id={123}
+          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+          title="Tat Sushi"
+          rating={4.5}
+          genre="sushi"
+          address="123 Main st"
+          short_descr="This is a Tat sush description"
+          dishes={[]}
+          long={20}
+          lat={120}
         />
       </ScrollView>
     </View>
