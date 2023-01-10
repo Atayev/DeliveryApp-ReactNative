@@ -1,8 +1,19 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import CategoryCard from "./CategoryCard";
-
+import { useEffect } from "react";
+import sanityClient, { urlFor } from '../sanity'
+import { useState } from "react";
 const Categories = () => {
+  const [category,setCategory] = useState([])
+  useEffect(() => {
+    sanityClient.fetch(`
+    *[_type=="category"]
+    `).then(data=>setCategory(data))
+
+  },[])
+
+  console.log(category)
   return (
       <ScrollView
           horizontal
@@ -11,14 +22,13 @@ const Categories = () => {
               paddingHorizontal: 15,
               paddingTop:10,
           }}
-      >
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
-      <CategoryCard imgUrl='ttps://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' title='testing'/>
+    >
+      {
+        category.map(cat => (
+          <CategoryCard imgUrl={urlFor(cat.image).url()} title={cat.name} />
+        ))
+      }
+
     </ScrollView>
   );
 };

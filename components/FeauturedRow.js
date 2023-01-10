@@ -2,8 +2,31 @@ import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { ArrowRightIcon } from "react-native-heroicons/outline";
 import RestourantCart from "./RestourantCart";
+import { useEffect } from "react";
+import sanityClient, { urlFor } from "../sanity";
+import { useState } from "react";
+const FeauturedRow = ({ id, title, description, featuredCategory }) => {
+  const [restaurants, setRestaurants] = useState();
 
-const FeauturedRow = ({ title, description, featuredCategory }) => {
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type=="featured" && _id==$id] {
+          ...,
+          restaurants[]->{
+            ...,
+            dishes[]->,
+              type->{
+                name
+              }
+          }
+        }[0]
+    `,
+        { id }
+      )
+      .then((data) => setRestaurants(data?.restaurants));
+  }, []);
+
   return (
     <View>
       <View className="mt-4 flex-row items-center justify-between px-4">
@@ -20,66 +43,21 @@ const FeauturedRow = ({ title, description, featuredCategory }) => {
         showsHorizontalScrollIndicator={false}
         className="pt-4"
       >
-        <RestourantCart
-          id={123}
-          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          title="Tat Sushi"
-          rating={4.5}
-          genre="sushi"
-          address="123 Main st"
-          short_descr="This is a Tat sush description"
-          dishes={[]}
-          long={20}
-          lat={120}
-        />
-        <RestourantCart
-          id={123}
-          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          title="Tat Sushi"
-          rating={4.5}
-          genre="sushi"
-          address="123 Main st"
-          short_descr="This is a Tat sush description"
-          dishes={[]}
-          long={20}
-          lat={120}
-        />
-        <RestourantCart
-          id={123}
-          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          title="Tat Sushi"
-          rating={4.5}
-          genre="sushi"
-          address="123 Main st"
-          short_descr="This is a Tat sush description"
-          dishes={[]}
-          long={20}
-          lat={120}
-        />
-        <RestourantCart
-          id={123}
-          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          title="Tat Sushi"
-          rating={4.5}
-          genre="sushi"
-          address="123 Main st"
-          short_descr="This is a Tat sush description"
-          dishes={[]}
-          long={20}
-          lat={120}
-        />
-        <RestourantCart
-          id={123}
-          imgUrl="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          title="Tat Sushi"
-          rating={4.5}
-          genre="sushi"
-          address="123 Main st"
-          short_descr="This is a Tat sush description"
-          dishes={[]}
-          long={20}
-          lat={120}
-        />
+        {restaurants?.map((restaurant) => (
+          <RestourantCart
+            key={restaurant?._id}
+            id={restaurant?._id}
+            imgUrl={urlFor(restaurant?.image).url()}
+            title={restaurant?.name}
+            rating={restaurant?.rating}
+            genre={restaurant?.type.name}
+            address={restaurant?.address}
+            short_descr={restaurant?.short_desc}
+            dishes={restaurant?.dishes}
+            long={restaurant?.long}
+            lat={restaurant?.lat}
+          />
+        ))}
       </ScrollView>
     </View>
   );
