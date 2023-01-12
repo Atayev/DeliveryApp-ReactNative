@@ -58,10 +58,10 @@ const HomeScreen = () => {
           <Text className="font-bold text-gray-400 text-xs">Deliver Now</Text>
           <Text className="font-bold text-xl">
             Current Location
-            <ChevronDownIcon size={20} color="#00CCbb" />
+            <ChevronDownIcon size={20} color="#1874d2" />
           </Text>
         </View>
-        <UserIcon size={35} color="#00CCbb" />
+        <UserIcon size={35} color="#1874d2" />
       </View>
       <View className="flex-row items-center space-x-2 pb-2 px-3">
         <View className="flex-row space-x-2 flex-1 bg-gray-200 p-3">
@@ -71,7 +71,7 @@ const HomeScreen = () => {
             keyboardType="default"
           />
         </View>
-        <AdjustmentsHorizontalIcon size={15} color="#00CCbb" />
+        <AdjustmentsHorizontalIcon size={15} color="#1874d2" />
       </View>
       <ScrollView
         className="bg-gray-100"

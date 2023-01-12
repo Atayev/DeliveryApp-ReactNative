@@ -59,7 +59,7 @@ const DishRow = ({ id, name, description, price, image }) => {
           <View className="flex-row items-center space-x-2 pb-3">
             <TouchableOpacity disabled={!items.length} onPress={handleRemove}>
               <MinusCircleIcon
-                color={items.length > 0 ? "#00ccbb" : "gray"}
+                color={items.length > 0 ? "#1874d2" : "gray"}
                 size={40}
               />
             </TouchableOpacity>
@@ -67,7 +67,7 @@ const DishRow = ({ id, name, description, price, image }) => {
             <Text>{items.length}</Text>
 
             <TouchableOpacity onPress={handlePress}>
-              <PlusCircleIcon color="#00ccbb" size={40} />
+              <PlusCircleIcon color="#1874d2" size={40} />
             </TouchableOpacity>
           </View>
         </View>

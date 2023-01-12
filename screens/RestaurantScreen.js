@@ -94,7 +94,7 @@ const RestaurantScreen = () => {
             <Text className="pl-2 flex-1 text-md font-bold">
               Have a food allergy?
             </Text>
-            <ChevronRightIcon color="#00ccbb" />
+            <ChevronRightIcon color="#1874d2" />
           </TouchableOpacity>
           <View className="pb-36">
             <Text className="px-4 pt-6 mx-3 font-bold text-xl">Menu</Text>
