@@ -11,7 +11,6 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToBasket,
   removeFromBasket,
-  selectBasketItems,
   selectBasketItemsById,
 } from "./app/slices/basketSlice";
 const DishRow = ({ id, name, description, price, image }) => {
