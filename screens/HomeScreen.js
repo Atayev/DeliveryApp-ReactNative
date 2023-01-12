@@ -40,7 +40,6 @@ const HomeScreen = () => {
       .then((data) => setFeaturedCat(data));
   }, []);
 
-  console.log(featuredCat);
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
